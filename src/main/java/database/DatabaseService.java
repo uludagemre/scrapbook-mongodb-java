@@ -22,25 +22,25 @@ public class DatabaseService {
         return dbInstance;
     }
 
-    public static void createDatabase() {
-        MongoDatabase db = client.getDatabase("test");
-        collection = createCollection(db);
-    }
-
-    public static MongoCollection<Document> createCollection(MongoDatabase db) {
-        if (!db.listCollections().iterator().hasNext()){
-            db.createCollection("zoo");
-        }
-
-        return db.getCollection("zoo");
-    }
-
     public MongoCollection<Document> getCollection() {
         return collection;
     }
 
     public void insertRecords(MongoCollection<Document> collection, List<Document> documents) {
         collection.insertMany(documents);
+    }
+
+    private static void createDatabase() {
+        MongoDatabase db = client.getDatabase("test");
+        collection = createCollection(db);
+    }
+
+    private static MongoCollection<Document> createCollection(MongoDatabase db) {
+        if (!db.listCollections().iterator().hasNext()) {
+            db.createCollection("zoo");
+        }
+
+        return db.getCollection("zoo");
     }
 
     private static MongoClient createClient() {
