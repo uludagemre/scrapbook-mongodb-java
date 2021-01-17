@@ -1,3 +1,3 @@
-# Initial trials on MongoDB, a leading no-sql db.
+# Initial trials on MongoDB.
 
-I got my hands dirty with MongoDB.
+I got my hands dirty with MongoDB, a leading no-sql db.
